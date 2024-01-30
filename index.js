@@ -11,6 +11,15 @@ function getName() {
   const b = a[0].toUpperCase() + a.substring(1);
   return b;
 }
+function checkSpamOne() {
+  let lowerStr = findAddComment.textContent.toLowerCase();
+  return lowerStr.includes("viagra");
+}
+
+function checkSpamTwo() {
+  let lowerStr = findAddComment.textContent.toLowerCase();
+  return lowerStr.includes("xxx");
+}
 
 function getComment() {
   findAddName.innerHTML = getName();
@@ -18,24 +27,19 @@ function getComment() {
   findAddImg.src = `${findUrl.value}`;
   findUrl.value = "";
   findAddImg.classList.add("img");
-  findAddComment.innerHTML = findComment.value;
+  findAddComment.textContent = findComment.value;
   findComment.value = "";
-}
-
-function checkSpamOne() {
-  let lowerStr = findAddComment.value.toLowerCase();
-  return lowerStr.includes("viagra");
-}
-
-function checkSpamTwo() {
-  let lowerStr = findAddComment.value.toLowerCase();
-  return lowerStr.includes("xxx");
-}
-
-if (checkSpamOne()) {
-  findAddComment.textContent = findAddComment.value.replace(/viagra/gi, "***");
-} else if (checkSpamTwo()) {
-  findAddComment.textContent = findAddComment.value.replace(/xxx/gi, "***");
-} else {
-  findAddComment.innerHTML = findComment.value;
+  if (checkSpamOne()) {
+    findAddComment.textContent = findAddComment.textContent.replace(
+      /viagra/gi,
+      "***"
+    );
+  } else if (checkSpamTwo()) {
+    findAddComment.textContent = findAddComment.textContent.replace(
+      /xxx/gi,
+      "***"
+    );
+  } else {
+    findAddComment.innerHTML = findComment.value;
+  }
 }

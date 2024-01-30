@@ -16,9 +16,13 @@ body {
     padding-right: 200px;
 }
 
-h1,
+.tittle,
 .left p {
     text-transform: uppercase;
+}
+
+h2 {
+    padding-top: 10px;
 }
 
 .left p {
