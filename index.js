@@ -40,6 +40,6 @@ function getComment() {
       "***"
     );
   } else {
-    findAddComment.innerHTML = findComment.value;
+    findAddComment.innerHTML = findAddComment.textContent;
   }
 }
